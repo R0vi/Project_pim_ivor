@@ -1,258 +1,127 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-	<head>
-		<title>ToolsForEver by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body>
-		<div id="page-wrapper">
-			<div id="header-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
+<head>
 
-							<header id="header">
-								<h1><a href="#" id="logo">ToolsForEver</a></h1>
-								<nav id="nav">
-									<a href="index.html" class="current-page-item">Homepage</a>
-									<a href="twocolumn1.html">Two Column #1 haha</a>
-									<a href="twocolumn2.html">Two Column #2</a>
-									<a href="onecolumn.html">One Column</a>
-									<a href="threecolumn.html">Three Column</a>
-								</nav>
-							</header>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="banner-wrapper">
-				<div class="container">
+    <title>Scrolling Nav - Start Bootstrap Template</title>
 
-					<div id="banner">
-						<h2>Put something cool here!</h2>
-						<span>And put something almost as cool here, but a bit longer ...</span>
-					</div>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-				</div>
-			</div>
-			<div id="main">
-				<div class="container">
-					<div class="row main-row">
-						<div class="4u 12u(mobile)">
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
 
-							<section>
-								<h2>Welcome to ToolsForEver!</h2>
-								<p>This is <strong>ToolsForEver</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> and released for free by <a href="http://pimenivor.net">HTML5 UP</a>. It features
-								a simple, lightweight design, solid HTML5 and CSS3 code, and full responsive support for desktop, tablet, and mobile displays.</p>
-								<footer class="controls">
-									<a href="http://pimenivor.net" class="button">More cool designs ...</a>
-								</footer>
-							</section>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-						</div>
-						<div class="4u 12u(mobile)">
+</head>
 
-							<section>
-								<h2>Who are you guys?</h2>
-								<ul class="small-image-list">
-									<li>
-										<a href="#"><img src="images/pic2.jpg" alt="" class="left" /></a>
-										<h4>Jane Anderson</h4>
-										<p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis.</p>
-									</li>
-									<li>
-										<a href="#"><img src="images/pic1.jpg" alt="" class="left" /></a>
-										<h4>James Doe</h4>
-										<p>Vitae magna eget odio amet mollis justo facilisis amet quis. Sed sagittis consequat.</p>
-									</li>
-								</ul>
-							</section>
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-						</div>
-						<div class="4u 12u(mobile)">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-							<section>
-								<h2>How about some links?</h2>
-								<div>
-									<div class="row">
-										<div class="6u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Suspendisse varius ipsum</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-											</ul>
-										</div>
-										<div class="6u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Vitae magna sed dolore</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</section>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            </div>
 
-						</div>
-					</div>
-					<div class="row main-row">
-						<div class="6u 12u(mobile)">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-							<section>
-								<h2>An assortment of pictures and text</h2>
-								<p>Duis neque nisi, dapibus sed mattis quis, rutrum et accumsan.
-								Suspendisse nibh. Suspendisse vitae magna eget odio amet mollis
-								justo facilisis quis. Sed sagittis mauris amet tellus gravida
-								lorem ipsum dolor sit amet consequat blandit lorem ipsum dolor
-								sit amet consequat sed dolore.</p>
-								<ul class="big-image-list">
-									<li>
-										<a href="#"><img src="images/pic3.jpg" alt="" class="left" /></a>
-										<h3>Magna Gravida Dolore</h3>
-										<p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-										facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-										Maecenas eu arcu purus, phasellus fermentum elit.</p>
-									</li>
-									<li>
-										<a href="#"><img src="images/pic4.jpg" alt="" class="left" /></a>
-										<h3>Magna Gravida Dolore</h3>
-										<p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-										facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-										Maecenas eu arcu purus, phasellus fermentum elit.</p>
-									</li>
-									<li>
-										<a href="#"><img src="images/pic5.jpg" alt="" class="left" /></a>
-										<h3>Magna Gravida Dolore</h3>
-										<p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-										facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-										Maecenas eu arcu purus, phasellus fermentum elit.</p>
-									</li>
-								</ul>
-							</section>
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Scrolling Nav</h1>
+                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
+                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						</div>
-						<div class="6u 12u(mobile)">
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-							<article class="blog-post">
-								<h2>Just another blog post</h2>
-								<a class="comments" href="#">33 comments</a>
-								<a href="#"><img src="images/pic6.jpg" alt="" class="top blog-post-image" /></a>
-								<h3>Magna Gravida Dolore</h3>
-								<p>Aenean non massa sapien. In hac habitasse platea dictumst.
-								Maecenas sodales purus et nulla sodales aliquam. Aenean ac
-								porttitor metus. In hac habitasse platea dictumst. Phasellus
-								blandit turpis in leo scelerisque mollis. Nulla venenatis
-								ipsum nec est porta rhoncus. Mauris sodales sed pharetra
-								nisi nec consectetur. Cras elit magna, hendrerit nec
-								consectetur in, sollicitudin vitae justo. Cras amet aliquet
-								Aliquam ligula turpis, feugiat id fermentum malesuada,
-								rutrum eget turpis. Mauris sodales sed pharetra nisi nec
-								consectetur. Cras elit magna, hendrerit nec consectetur
-								in sollicitudin vitae.</p>
-								<footer class="controls">
-									<a href="#" class="button">Continue Reading</a>
-								</footer>
-							</article>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Services Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="footer-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="8u 12u(mobile)">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contact Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-							<section>
-								<h2>How about a truckload of links?</h2>
-								<div>
-									<div class="row">
-										<div class="3u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Suspendisse varius ipsum</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-											</ul>
-										</div>
-										<div class="3u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Vitae magna sed dolore</a></li>
-											</ul>
-										</div>
-										<div class="3u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Suspendisse varius ipsum</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-											</ul>
-										</div>
-										<div class="3u 12u(mobile)">
-											<ul class="link-list">
-												<li><a href="#">Quis accumsan lorem</a></li>
-												<li><a href="#">Sed neque nisi consequat</a></li>
-												<li><a href="#">Eget et amet consequat</a></li>
-												<li><a href="#">Dapibus sed mattis blandit</a></li>
-												<li><a href="#">Vitae magna sed dolore</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</section>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-						</div>
-						<div class="4u 12u(mobile)">
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-							<section>
-								<h2>Something of interest</h2>
-								<p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed.
-								Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet
-								mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
-								lorem ipsum dolor sit amet consequat blandit.</p>
-								<footer class="controls">
-									<a href="#" class="button">Oh, please continue ....</a>
-								</footer>
-							</section>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
 
-						</div>
-					</div>
-					<div class="row">
-						<div class="12u">
+</body>
 
-							<div id="copyright">
-								&copy; Untitled. All rights reserved. | Design: <a href="http://pimenivor.net">HTML5 UP</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
 </html>
