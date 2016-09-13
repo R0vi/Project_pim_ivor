@@ -9,4 +9,5 @@ class sqlquery
         $connection = $this->connection;
     }
 
+    public function query
 }
