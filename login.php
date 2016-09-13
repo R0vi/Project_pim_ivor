@@ -1,6 +1,6 @@
 <?php
 
-class login
+class Login
 {
     private $username;
     private $password;
@@ -13,9 +13,9 @@ class login
     public function getLoginPost()
     {
         if (!empty($_POST)) {
-            if (!empty($_POST['username']))
+            if (!empty($_POST['user']))
             {
-                $this->username = $_POST['username'];
+                $this->username = $_POST['user'];
             }
             if (!empty($_POST['password']))
             {
