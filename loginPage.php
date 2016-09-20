@@ -4,10 +4,11 @@ class Login
 {
     private $username;
     private $password;
+    private $queryBuilder;
 
-    public function __construct()
+    public function __construct(QueryBuilder $queryBuilder)
     {
-
+        $this->$queryBuilder = $queryBuilder;
     }
 
     public function getLoginPost()
@@ -21,12 +22,16 @@ class Login
             {
                 $this->password = $_POST['password'];
             }
+            $this->getFromDatabase();
         }
+
     }
 
     public function getFromDatabase()
     {
-        
+        $search = array("user","password");
+        $what = array('username' => $this->username);
+        $result = $this->queryBuilder->selectQuery("login",$search,$what);
     }
 
     public function validateInput()
