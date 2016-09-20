@@ -1,5 +1,6 @@
 <?php
 
+
 class QueryBuilder
 {
     private $connection;
@@ -8,16 +9,57 @@ class QueryBuilder
     public function __construct(Connection $connection)
     {
         $connection = $this->connection;
-        $this->db = $this->connection->db;
+        $this->db = $connection->db;
     }
 
-    public function selectQuery($table, $data, $where = '')
+    public function selectQuery($table, array $fields, array $data = [])
     {
-        $whereTag = 'WHERE';
-        if ($where == '')
+        $where = '';
+        $placeholders = '';
+        if(!$data == null)
         {
-            $whereTag == '';
+            $where = ' where';
+            $fields = implode($fields,', ');
+
+            $placeholders = array_map(function($key){
+                return $key . ' = :' . $key;
+            },array_keys($data));
+
+            $placeholders = implode($placeholders,', ');
+
         }
-        $this->db->prepare('SELECT '.$data.'FROM '.$table.' '.$whereTag.' '.$where.';');
+
+        $query = $this->db->prepare('select ' . $fields . ' FROM ' . $table . $where . $placeholders);
+
+        foreach($data as $key => &$value){
+            $query->bindParam(':' . $key,$value);
+        }
+
+        return $query->execute();
+
+    }
+
+    public function insterQuery($table, array $fields, array $data = [])
+    {
+        $fields = implode($fields,',');
+        $values = array_values($data);
+
+        $placeholders = array_map(function($key){
+            return $key . '=:' . $key;
+        },array_keys($data));
+
+        echo'SELECT '.$fields.' FROM '.$table.' WHERE '.$values.$placeholders;
+
+        $placeholders = implode($placeholders,',');
+
+        $query = $this->db->prepare('select ' . $fields . ' where ' . $placeholders);
+
+        foreach($data as $key => &$value){
+            $query->bindParam(':' . $key,$value);
+        }
+
+        return $query->execute();
+
     }
 }
+
