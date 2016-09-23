@@ -9,6 +9,7 @@ class Login
     public function __construct(QueryBuilder $queryBuilder)
     {
         $this->$queryBuilder = $queryBuilder;
+
     }
 
     public function getLoginPost()
@@ -22,7 +23,6 @@ class Login
             {
                 $this->password = $_POST['password'];
             }
-            $this->getFromDatabase();
         }
 
     }
@@ -39,3 +39,4 @@ class Login
 
     }
 }
+
