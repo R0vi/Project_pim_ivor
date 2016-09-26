@@ -29,7 +29,7 @@ class QueryBuilder
 
         }
 
-        $query = $this->db->prepare('select ' . $fields . ' FROM ' . $table . $where . $placeholders);
+        $query = $this->db->prepare('SELECT ' . $fields . ' FROM ' . $table . $where . $placeholders);
 
         foreach($data as $key => &$value){
             $query->bindParam(':' . $key,$value);
@@ -40,22 +40,22 @@ class QueryBuilder
         return $query->fetch();
     }
 
-    public function instertQuery($table, array $fields, array $data = [])
+    public function instertQuery($table, array $columns, array $values)
     {
-        $fields = implode($fields,',');
-        $values = array_values($data);
+        $fields = implode($columns,',');
+
 
         $placeholders = array_map(function($key){
-            return $key . '=:' . $key;
-        },array_keys($data));
+            return ':' . $key;
+        },array_keys($values));
 
-        echo'SELECT '.$fields.' FROM '.$table.' WHERE '.$values.$placeholders;
+        echo'INSET INTO '.$table.' FROM '.$table.' WHERE '.$values.$placeholders;
 
         $placeholders = implode($placeholders,',');
 
         $query = $this->db->prepare('select ' . $fields . ' where ' . $placeholders);
 
-        foreach($data as $key => &$value){
+        foreach($values as $key => &$value){
             $query->bindParam(':' . $key,$value);
         }
 
