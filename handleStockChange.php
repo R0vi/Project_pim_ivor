@@ -9,7 +9,7 @@ class StockChange{
     // this function handles adding to stock
     public function addToStock($product, $amount)
     {
-        
+
     }
 
     // this function handles removing items from stock

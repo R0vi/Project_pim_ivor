@@ -29,6 +29,7 @@ class Login
                 $userSupliedDetails["username"] = $this->username;
             }
         }
+        return $userSupliedDetails;
 
     }
 
@@ -40,8 +41,17 @@ class Login
         $result = $this->queryBuilder->selectQuery("login",$search,$what);
     }
 
+    // validates if a login attempt is valid
     public function validateInput()
     {
+        $userSuplied    = $this->getLoginPost();
+        $serverSuplied  = $this->getFromDatabase();
+
+        if( $userSuplied["username"] == $serverSuplied["username"] && $userSuplied["password"] == $serverSuplied["password"] ){
+            $_SESSION["loggedIn"] == true;
+        }
+
+
 
     }
 }
