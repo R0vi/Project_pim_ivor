@@ -39,7 +39,7 @@ class QueryBuilder
 
     }
 
-    public function insterQuery($table, array $fields, array $data = [])
+    public function instertQuery($table, array $fields, array $data = [])
     {
         $fields = implode($fields,',');
         $values = array_values($data);

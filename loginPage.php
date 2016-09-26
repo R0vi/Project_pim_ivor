@@ -12,21 +12,27 @@ class Login
 
     }
 
+    // returns an array [password] => password
+    //                  [username] => username
     public function getLoginPost()
     {
+        $userSupliedDetails = array();
         if (!empty($_POST)) {
             if (!empty($_POST['user']))
             {
                 $this->username = $_POST['user'];
+                $userSupliedDetails["password"] = $this->password;
             }
             if (!empty($_POST['password']))
             {
                 $this->password = $_POST['password'];
+                $userSupliedDetails["username"] = $this->username;
             }
         }
 
     }
 
+    // gets the inlogdetails from the db
     public function getFromDatabase()
     {
         $search = array("user","password");
