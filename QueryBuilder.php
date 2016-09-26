@@ -35,8 +35,9 @@ class QueryBuilder
             $query->bindParam(':' . $key,$value);
         }
 
-        return $query->execute();
+        $query->execute();
 
+        return $query->fetch();
     }
 
     public function instertQuery($table, array $fields, array $data = [])
