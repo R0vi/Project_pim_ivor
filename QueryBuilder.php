@@ -40,7 +40,7 @@ class QueryBuilder
         return $query->fetch();
     }
 
-    public function instertQuery($table, array $columns, array $values)
+    public function insertQuery($table, array $columns, array $values)
     {
         $fields = implode($columns,',');
 
