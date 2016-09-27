@@ -18,7 +18,7 @@ class QueryBuilder
         $placeholders = '';
         if(!$data == null)
         {
-            $where = ' where';
+            $where = ' WHERE';
             $fields = implode($fields,', ');
 
             $placeholders = array_map(function($key){
@@ -42,20 +42,17 @@ class QueryBuilder
 
     public function insertQuery($table, array $columns, array $values)
     {
-        $fields = implode($columns,',');
-
-
-        $placeholders = array_map(function($key){
+        $columns = implode($columns,',');
+        $valuesarray = array_map(function($key){
             return ':' . $key;
         },array_keys($values));
+        $values = implode($valuesarray,',');
 
-        echo'INSET INTO '.$table.' FROM '.$table.' WHERE '.$values.$placeholders;
+        echo'INSET INTO '.$table.' ('.$columns.') VALUES ('.$values.')';
 
-        $placeholders = implode($placeholders,',');
+        $query = $this->db->prepare('INSET INTO ' . $table . ' (' . $columns . ') VALUES (' . $values . ')');
 
-        $query = $this->db->prepare('select ' . $fields . ' where ' . $placeholders);
-
-        foreach($values as $key => &$value){
+        foreach($valuesarray as $key => &$value){
             $query->bindParam(':' . $key,$value);
         }
 
