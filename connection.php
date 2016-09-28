@@ -2,18 +2,8 @@
 
 class Connection
 {
-    private $database;
-    private $host;
-    private $db;
-
-    public function __construct($host = 'localhost', $database)
+    public function __construct($host = 'localhost', $database, $username, $password)
     {
-        $this->database = $database;
-        $this->host = $host;
-    }
-
-    public function connection($username, $password)
-    {
-        $this->dbh = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $username, $password);
+        return new PDO('mysql:host='.$host.';dbname='.$database, $username, $password);
     }
 }

@@ -2,13 +2,13 @@
 
 class Login
 {
-    private $username;
-    private $password;
     private $queryBuilder;
+    private $db;
 
-    public function __construct(QueryBuilder $queryBuilder)
+    public function __construct(QueryBuilder $queryBuilder, Connection $connection)
     {
-        $this->$queryBuilder = $queryBuilder;
+        $this->queryBuilder = $queryBuilder;
+        $this->db = $connection;
 
     }
 
@@ -20,13 +20,11 @@ class Login
         if (!empty($_POST)) {
             if (!empty($_POST['user']))
             {
-                $this->username = $_POST['user'];
-                $userSupliedDetails["password"] = $this->password;
+                $userSupliedDetails['username'] = $_POST['user'];
             }
             if (!empty($_POST['password']))
             {
-                $this->password = $_POST['password'];
-                $userSupliedDetails["username"] = $this->username;
+                $userSupliedDetails['password'] = $_POST['password'];
             }
         }
         return $userSupliedDetails;
@@ -36,23 +34,9 @@ class Login
     // gets the inlogdetails from the db
     public function getFromDatabase()
     {
-        $search = array("user","password");
-        $what = array('username' => $this->username);
-        $result = $this->queryBuilder->selectQuery("login",$search,$what);
-    }
-
-    // validates if a login attempt is valid
-    public function validateInput()
-    {
-        $userSuplied    = $this->getLoginPost();
-        $serverSuplied  = $this->getFromDatabase();
-
-        if( $userSuplied["username"] == $serverSuplied["username"] && $userSuplied["password"] == $serverSuplied["password"] ){
-            $_SESSION["loggedIn"] == true;
-        }
-
-
-
+        $userInput = $this->getLoginPost();
+        $query = $this->db->prepare('SELECT username, password FROM login WHERE :username = username AND :password = password');
+        $query->execute(array(':username' => $userInput['username'], ':password' => $userInput['password']));
     }
 }
 
