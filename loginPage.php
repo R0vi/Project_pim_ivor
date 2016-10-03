@@ -33,14 +33,21 @@ class Login
     }
 
     // gets the inlogdetails from the db
-    public function getFromDatabase()
+    public function validateLogin()
     {
         echo "getfromdatabase";
         $userInput = $this->getLoginPost();
         $query = $this->db->prepare('SELECT username, password , usertype FROM login WHERE :username = username AND :password = password');
         $query->execute(array(':username' => $userInput['username'], ':password' => $userInput['password']));
         $result = $query->fetch();
-        return $result;
+        if($result)
+        {
+            echo'login succsesfull';
+            return $result;
+        } else {
+            echo'login unsuccsesfull';
+            return null;
+        }
     }
 
     public function storeLogin($data)
