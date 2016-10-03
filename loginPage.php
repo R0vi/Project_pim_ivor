@@ -39,27 +39,14 @@ class Login
         $userInput = $this->getLoginPost();
         $query = $this->db->prepare('SELECT username, password , usertype FROM login WHERE :username = username AND :password = password');
         $query->execute(array(':username' => $userInput['username'], ':password' => $userInput['password']));
-        if($query->rowCount() == 1){
-            loginValid();
-        }else {
-            loginInvalid($userInput['username']);
-        }
+        $result = $query->fetch();
+        return $result;
     }
 
-    public function loginValid($usr, $type)
+    public function storeLogin($data)
     {
-        $_SESSION['username'] = $usr;
-        $_SESSION['usertype'] = $type;
+        $_SESSION['login'] = $data;
         header('location: http://localhost/Project_pim_ivor/mainPage.php');
     }
-
-
-    public function loginInvalid()
-    {
-        header('location: http://localhost/Project_pim_ivor/');
-    }
-
-
-
 }
 
