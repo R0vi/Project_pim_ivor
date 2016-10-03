@@ -21,7 +21,7 @@ class StockChange{
     // this function checks if a warning needs to be issued for low running stock
     public function checkForwarning($product)
     {
-            
+
     }
 
 

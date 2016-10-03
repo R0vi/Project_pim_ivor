@@ -104,7 +104,7 @@
 
 <div class="login-page">
     <div class="form" >
-        <form id="loginForm" class="login-form" action="loginPage.php" method="post">
+        <form id="loginForm" class="login-form" action="mainPage.php" method="post">
             <input type="text"  name="user" placeholder="user"/>
             <input type="password" name="password" placeholder="password"/>
             <button onclick="submitForm()">login</button>
