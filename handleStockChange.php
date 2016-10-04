@@ -2,9 +2,11 @@
 class StockChange{
 
     // this function constructs a new Stock change instance
-    public function __construct()
-    {
+    private $db;
 
+    public function __construct(Connection $connection)
+    {
+        $this->db = $connection;
     }
 
     // this function handles adding to stock

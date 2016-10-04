@@ -2,9 +2,21 @@
 require_once("loginPage.php");
 require_once("functions.php");
 require_once("handleStockChange.php");
+
+// instanties van classes
 $login = new Login();
 $functions = new Debug();
 $stockHandler = new StockChange();
+
+// maken db connectie
+$connection = new Connection('tools4ever', 'root', '');
+$login = new Login($connection);
+
+
+// check if login is valid
+if ( empty( $_SESSION['login'] ) ){
+    header('location: http://localhost/Project_pim_ivor/index.php/1');
+}
 
 $login->getFromDatabase();
 $totalStock = $stockHandler->returnTotalStock();
