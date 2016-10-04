@@ -1,3 +1,16 @@
+<?php
+require_once 'Connection.php';
+require_once 'loginPage.php';
+
+$connection = new Connection('tools4ever', 'root', '');
+$login = new Login($connection);
+
+if(isset($_POST))
+{
+    $login->storeLogin($login->validateLogin());
+}
+
+?>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
@@ -118,4 +131,3 @@
         document.getElementById("loginForm").submit();
     }
 </script>
-
