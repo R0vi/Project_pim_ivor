@@ -2,21 +2,17 @@
 
 class Login
 {
-    private $queryBuilder;
     private $db;
 
-    public function __construct(QueryBuilder $queryBuilder, Connection $connection)
+    public function __construct(Connection $connection)
     {
-        $this->queryBuilder = $queryBuilder;
         $this->db = $connection;
-        echo "contructor";
     }
 
     // returns an array [password] => password
     //                  [username] => username
     public function getLoginPost()
     {
-        echo "getloginPost";
         $userSupliedDetails = array();
         if (!empty($_POST)) {
             if (!empty($_POST['user']))
@@ -35,14 +31,13 @@ class Login
     // gets the inlogdetails from the db
     public function validateLogin()
     {
-        echo "getfromdatabase";
         $userInput = $this->getLoginPost();
         $query = $this->db->prepare('SELECT username, password , usertype FROM login WHERE :username = username AND :password = password');
         $query->execute(array(':username' => $userInput['username'], ':password' => $userInput['password']));
         $result = $query->fetch();
         if($result)
         {
-            echo'login succsesfull';
+            echo'login succesfull';
             return $result;
         } else {
             echo'login unsuccsesfull';
