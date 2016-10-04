@@ -1,6 +1,7 @@
 <?php
 class StockChange{
 
+    // this function constructs a new Stock change instance
     public function __construct()
     {
 
@@ -28,6 +29,16 @@ class StockChange{
     // this function issus a warning
     public function issueStockWarning($message, $product)
     {
+
+    }
+
+    // returns how much of this item is in stock
+    public function checkStockItem($product){
+
+    }
+
+    // returns an array containing all stock
+    public function returnTotalStock(){
 
     }
 

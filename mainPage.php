@@ -1,3 +1,16 @@
+<?php
+require_once("loginPage.php");
+require_once("functions.php");
+require_once("handleStockChange.php");
+$login = new Login();
+$functions = new Debug();
+$stockHandler = new StockChange();
+
+$login->getFromDatabase();
+$totalStock = $stockHandler->returnTotalStock();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

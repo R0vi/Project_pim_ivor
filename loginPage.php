@@ -50,6 +50,8 @@ class Login
         }
     }
 
+    // stores login data in the session.
+
     public function storeLogin($data)
     {
         $_SESSION['login'] = $data;

@@ -1,7 +1,7 @@
 <?php
  class debug
  {
-     
+     // prints an array with <pre> tags so it is nicly ordered
     function prePrintArray($array)
     {
         echo "<pre>";
@@ -9,14 +9,7 @@
         print_r($array);
         echo "<br>";
     }
-     
-    function logError($nr, $important, $message)
-    {
-        
-    } 
-     
-     
-     
+
  }
 
 
