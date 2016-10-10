@@ -3,10 +3,12 @@
 class Login
 {
     private $db;
+    private $connection;
 
     public function __construct(Connection $connection)
     {
-        $this->db = $connection;
+        $this->connection = $connection;
+        $this->db = $this->connection->getDb();
     }
 
     // returns an array [password] => password
@@ -50,7 +52,7 @@ class Login
     public function storeLogin($data)
     {
         $_SESSION['login'] = $data;
-        header('location: http://localhost/Project_pim_ivor/mainPage.php');
+        var_dump($_SESSION);
     }
 }
 

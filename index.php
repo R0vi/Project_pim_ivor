@@ -2,10 +2,10 @@
 require_once 'Connection.php';
 require_once 'loginPage.php';
 
-$connection = new Connection('tools4ever', 'root', '');
+$connection = new Connection('', 'test', 'root', '');
 $login = new Login($connection);
 
-if(isset($_POST))
+if(!empty($_POST))
 {
     $login->storeLogin($login->validateLogin());
 }
@@ -117,7 +117,7 @@ if(isset($_POST))
 
 <div class="login-page">
     <div class="form" >
-        <form id="loginForm" class="login-form" action="mainPage.php" method="post">
+        <form id="loginForm" class="login-form" action="index.php" method="post">
             <input type="text"  name="user" placeholder="user"/>
             <input type="password" name="password" placeholder="password"/>
             <button onclick="submitForm()">login</button>
