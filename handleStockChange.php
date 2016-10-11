@@ -30,12 +30,19 @@ class StockChange{
       // subtracting the specified amount of products form the old value
       $newAmount = $oldAmount-$amount;
       // checking if a warning should be issued
-      // $this->checkForWarning($product, $newAmount ,$oldAmount);
+      $warning = $this->checkForWarning($product, $newAmount ,$oldAmount);
+
+      if($warning){
+        $theWarning = "The stock of this product is to low now";
+      } else {
+        $theWarning = "all good";
+      }
 
       // change the db to contain the new amount of the product
       $query = $this->db->prepare('UPDATE `products` SET aantal = :amount WHERE product = :product');
       $query->execute(array(':product' => $product, ':amount' => $newAmount ));
 
+      return $theWarning;
     }
 
     // this function checks if a warning needs to be issued for low running stock
@@ -47,15 +54,10 @@ class StockChange{
       $warningAmount = $query->fetch();
 
       if( $newAmount < $warningAmount ){
-        // do stuff
+        return true;
+      }else {
+        return false;
       }
-
-    }
-
-
-    // this function issus a warning
-    public function issueStockWarning($message, $product)
-    {
 
     }
 
@@ -74,7 +76,4 @@ class StockChange{
       $result = $query->fetchall();
       return $result;
     }
-
-
-
 }
