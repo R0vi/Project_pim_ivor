@@ -1,16 +1,18 @@
 <?php
+require_once ("connection.php");
 require_once("loginPage.php");
 require_once("functions.php");
 require_once("handleStockChange.php");
 
-// instanties van classes
-$login = new Login();
-$functions = new Debug();
-$stockHandler = new StockChange();
-
 // maken db connectie
-$connection = new Connection('tools4ever', 'root', '');
+$connection = new Connection('', 'test', 'root', '');
 $login = new Login($connection);
+
+// instanties van classes
+$functions = new debug();
+$stockHandler = new StockChange($connection);
+
+
 
 
 // check if login is valid
@@ -18,7 +20,6 @@ if ( empty( $_SESSION['login'] ) ){
     header('location: http://localhost/Project_pim_ivor/index.php/1');
 }
 
-$login->getFromDatabase();
 $totalStock = $stockHandler->returnTotalStock();
 
 
@@ -76,7 +77,7 @@ $totalStock = $stockHandler->returnTotalStock();
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#voorraad">Voorraad</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -95,21 +96,43 @@ $totalStock = $stockHandler->returnTotalStock();
     <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1>Scrolling Nav</h1>
-                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
-                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
-                </div>
+                <?php
+                var_dump($totalStock);
+                ?>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="voorraad" class="voorraad-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>About Section</h1>
+                    <h1>Voorraad</h1>
+                    <form method="post">
+                        <select name="locatiekeuze">
+                            <?php
+                            $locationBuffer = [];
+                            foreach($totalStock as $row)
+                            {
+                                if(!in_array($row['Locatie'], $locationBuffer))
+                                {
+                                    array_push($locationBuffer, $row['Locatie']);
+                                    echo "<option name='locatie' value='".$row['Locatie']."'>".$row['Locatie']."</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </form>
+                    <table>
+                        <tr><td>product</td><td>type</td><td>merk</td><td>inkoopprijs</td><td>verkoopprijs</td></tr>
+                        <?php
+                        foreach($totalStock as $row)
+                        {
+                            echo "<tr><td></td>";
+                        }
+                        ?>
+                    </table>
                 </div>
             </div>
         </div>

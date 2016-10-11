@@ -60,7 +60,7 @@ class StockChange{
       }else {
         return false;
       }
-
+        
     }
 
     // returns how much of this item is in stock
