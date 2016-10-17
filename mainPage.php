@@ -66,7 +66,7 @@ $totalStock = $stockHandler->returnTotalStock();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Tools4Ever</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,7 +80,7 @@ $totalStock = $stockHandler->returnTotalStock();
                         <a class="page-scroll" href="#voorraad">Voorraad</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Fabriek</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -103,8 +103,8 @@ $totalStock = $stockHandler->returnTotalStock();
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="voorraad" class="voorraad-section">
+    <!-- voorraad Section -->
+    <section id="voorraad" class="about-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -124,12 +124,13 @@ $totalStock = $stockHandler->returnTotalStock();
                             ?>
                         </select>
                     </form>
-                    <table>
-                        <tr><td>product</td><td>type</td><td>merk</td><td>inkoopprijs</td><td>verkoopprijs</td></tr>
+                    <table width="100%">
+                        <tr><td>product</td><td>type</td><td>merk</td><td>aantal</td><td>inkoopprijs</td><td>verkoopprijs</td></tr>
+                        <tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
                         <?php
                         foreach($totalStock as $row)
                         {
-                            echo "<tr><td></td>";
+                            echo "<tr><td>{$row['product']}</td><td>{$row['type']}</td><td>{$row['fabriek']}</td><td>{$row['aantal']}</td><td>{$row['inkoopprijs']}</td><td>{$row['verkoopprijs']}</td></tr>";
                         }
                         ?>
                     </table>
@@ -144,6 +145,7 @@ $totalStock = $stockHandler->returnTotalStock();
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Services Section</h1>
+
                 </div>
             </div>
         </div>
