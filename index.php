@@ -44,7 +44,7 @@ if(!empty($_POST))
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
         outline: 0;
-        background: #4CAF50;
+        background: #695eff;
         width: 100%;
         border: 0;
         padding: 15px;
@@ -55,7 +55,7 @@ if(!empty($_POST))
         cursor: pointer;
     }
     .form button:hover,.form button:active,.form button:focus {
-        background: #43A047;
+        background: #120a7f;
     }
     .form .message {
         margin: 15px 0 0;
@@ -63,7 +63,7 @@ if(!empty($_POST))
         font-size: 12px;
     }
     .form .message a {
-        color: #4CAF50;
+        color: #695eff;
         text-decoration: none;
     }
     .form .register-form {
@@ -103,11 +103,7 @@ if(!empty($_POST))
         color: #EF3B3A;
     }
     body {
-        background: #76b852; /* fallback for old browsers */
-        background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-        background: -moz-linear-gradient(right, #76b852, #8DC26F);
-        background: -o-linear-gradient(right, #76b852, #8DC26F);
-        background: linear-gradient(to left, #76b852, #8DC26F);
+        background: #fff268;
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

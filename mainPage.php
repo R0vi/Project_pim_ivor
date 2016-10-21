@@ -17,7 +17,7 @@ $stockHandler = new StockChange($connection);
 
 // check if login is valid
 if ( empty( $_SESSION['login'] ) ){
-    header('location: http://localhost/Project_pim_ivor/index.php/1');
+    header('location: http://localhost/Project_pim_ivor/index.php');
 }
 
 $totalStock = $stockHandler->returnTotalStock();
@@ -49,6 +49,7 @@ $totalStock = $stockHandler->returnTotalStock();
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 
 </head>
 
@@ -77,13 +78,7 @@ $totalStock = $stockHandler->returnTotalStock();
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#voorraad">Voorraad</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Fabriek</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#about">Welcome <?php echo $_SESSION['login']['username'] ?>!</a>
                     </li>
                 </ul>
             </div>
@@ -96,44 +91,44 @@ $totalStock = $stockHandler->returnTotalStock();
     <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
-                <?php
-                var_dump($totalStock);
-                ?>
+                <h1>Voorraad</h1>
+                <form method="post">
+                    <select name="locatiekeuze">
+                        <?php
+                        $locationBuffer = [];
+                        foreach($totalStock as $row)
+                        {
+                            if(!in_array($row['Locatie'], $locationBuffer))
+                            {
+                                array_push($locationBuffer, $row['Locatie']);
+                                echo "<option name='locatie' value='".$row['Locatie']."'>".$row['Locatie']."</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </form>
+                <table width="100%">
+                    <tr><td>product</td><td>type</td><td>merk</td><td>aantal</td><td>inkoopprijs</td><td>verkoopprijs</td></tr>
+                    <tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+                    <?php
+                    foreach($totalStock as $row)
+                    {
+                        echo "<tr><td>{$row['product']}</td><td>{$row['type']}</td><td>{$row['fabriek']}</td><td>{$row['aantal']}</td><td>{$row['inkoopprijs']}</td><td>{$row['verkoopprijs']}</td></tr>";
+                    }
+                    ?>
+                </table>
             </div>
         </div>
     </section>
 
     <!-- voorraad Section -->
-    <section id="voorraad" class="about-section">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Voorraad</h1>
-                    <form method="post">
-                        <select name="locatiekeuze">
-                            <?php
-                            $locationBuffer = [];
-                            foreach($totalStock as $row)
-                            {
-                                if(!in_array($row['Locatie'], $locationBuffer))
-                                {
-                                    array_push($locationBuffer, $row['Locatie']);
-                                    echo "<option name='locatie' value='".$row['Locatie']."'>".$row['Locatie']."</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </form>
-                    <table width="100%">
-                        <tr><td>product</td><td>type</td><td>merk</td><td>aantal</td><td>inkoopprijs</td><td>verkoopprijs</td></tr>
-                        <tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
-                        <?php
-                        foreach($totalStock as $row)
-                        {
-                            echo "<tr><td>{$row['product']}</td><td>{$row['type']}</td><td>{$row['fabriek']}</td><td>{$row['aantal']}</td><td>{$row['inkoopprijs']}</td><td>{$row['verkoopprijs']}</td></tr>";
-                        }
-                        ?>
-                    </table>
+                    <?php
+                    var_dump($totalStock);
+                    ?>
                 </div>
             </div>
         </div>
