@@ -52,7 +52,10 @@ class Login
     public function storeLogin($data)
     {
         $_SESSION['login'] = $data;
-        var_dump($_SESSION);
+        if(!empty($_SESSION))
+        {
+            header('Location: mainPage.php');
+        }
     }
 }
 
